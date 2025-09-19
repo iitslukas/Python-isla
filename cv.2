@@ -1,0 +1,19 @@
+def pozdrav(meno, pohlavie):
+    if (pohlavie == "m"):
+        print (f"Toto je pozdrav pre {meno}a:")
+    elif (meno[-1] != "a"):
+        print(f"Toto je pozdrav pre {meno[0:-1]}o:") 
+    else:
+        print (f"Toto je pozdrav pre {meno[0:-1]}u:")
+    print ("Ahoj " + meno)
+    print ("################")
+
+pozdrav("jakub", "m")
+pozdrav("karol", "m")
+pozdrav ("janka", "z")
+
+
+def priemer(x, y, z):
+    vysledok = (x + y + z) /3
+    print (vysledok)
+priemer (65,28,35)
