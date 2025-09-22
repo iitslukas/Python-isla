@@ -1,0 +1,9 @@
+def infol(otazka):
+    print(otazka)
+    z = input()
+    print (f"Tvoja odpoved je {z}")
+
+
+infol("Ako sa volaš")
+infol("Aká je tvoja oblubená krajina")
+infol("Aká je tvoja oblubená kapela")
