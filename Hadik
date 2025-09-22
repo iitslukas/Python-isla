@@ -1,0 +1,26 @@
+x = 1
+y = 1
+
+def on_button_pressed_a():
+    global x
+    led.unplot(x, y)
+    x = x + 1
+    led.toggle(x, y)
+    pass
+
+input.on_button_pressed(
+    Button.A,
+    on_button_pressed_a
+    )
+
+def on_button_pressed_b():
+    global y
+    led.unplot(x, y)
+    y = y + 1
+    led.toggle(x, y)
+    pass
+
+input.on_button_pressed(
+    Button.B,
+    on_button_pressed_b
+    )
