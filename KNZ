@@ -1,0 +1,20 @@
+def spocitaj_knz(cisla):
+    x = 0
+    y = 0
+    z = 0
+    for cislo in cisla:
+        print("Čislo " + str(cislo))
+        if cislo > 0:
+            print("Je kladne")
+            x = x + 1
+        elif cislo == 0:
+            print("Ma hodnotu nula")
+            y = y + 1
+        else:
+            print("Je zaporne")
+            z = z + 1
+    print(f"Kladnych je {x}")
+    print(f"Nul je {y}")
+    print(f"Zapornych je {z}")
+
+spocitaj_knz([1, 2, -5, 0, 3, -7, 0, -12, -213, 647, -890])
