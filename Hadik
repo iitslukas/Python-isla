@@ -24,3 +24,17 @@ input.on_button_pressed(
     Button.B,
     on_button_pressed_b
     )
+
+
+x = 4
+y = 4
+input.rotation(Rotation.PITCH)
+def on_forever():
+    global x, y
+    if input.acceleration(Dimension.X) > -200:
+        led.unplot(x, y)
+        x = x - 1  
+        led.toggle(x, y)
+    basic.pause(500)
+
+basic.forever(on_forever)
