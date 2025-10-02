@@ -1,40 +1,57 @@
-x = 1
-y = 1
+x=2
+y=2
+led.plot(x, y)
 
-def on_button_pressed_a():
-    global x
-    led.unplot(x, y)
-    x = x + 1
-    led.toggle(x, y)
-    pass
+a= randint(0, 4)
+b= randint(0, 4)
+led.plot(a, b)
 
-input.on_button_pressed(
-    Button.A,
-    on_button_pressed_a
-    )
+miesto = [(x,y)]
 
-def on_button_pressed_b():
-    global y
-    led.unplot(x, y)
-    y = y + 1
-    led.toggle(x, y)
-    pass
-
-input.on_button_pressed(
-    Button.B,
-    on_button_pressed_b
-    )
-
-
-x = 4
-y = 4
-input.rotation(Rotation.PITCH)
 def on_forever():
-    global x, y
-    if input.acceleration(Dimension.X) > -200:
-        led.unplot(x, y)
-        x = x - 1  
-        led.toggle(x, y)
-    basic.pause(500)
+    global x, y, a, b, miesto
+
+    pohyb_x =input.acceleration(Dimension.X)
+    pohyb_y =input.acceleration(Dimension.Y)
+
+    pohnutie = False
+
+    if  pohyb_x <-200 and x > 0:
+        x= x - 1
+        pohnutie = True
+
+    elif pohyb_x >200 and x < 4:
+        x = x + 1
+        pohnutie = True
+
+    elif pohyb_y <-200 and y > 0:
+        y = y - 1
+        pohnutie = True
+
+    elif pohyb_y >200 and y < 4:
+        y = y + 1
+        pohnutie = True
+
+
+    if pohnutie:
+        led.plot(x, y)
+        miesto.append((x,y))
+
+        if x == a and y == b:
+            led.plot(a, b)
+            while True:
+                a=randint(0, 4)
+                b=randint(0, 4)
+                if not (a == x and b == y):
+                    break
+            led.plot(a, b)
+        else:
+
+            chvost_x, chvost_y = miesto.pop(0)
+            led.unplot(chvost_x, chvost_y)
+
+
+        basic.pause(500)
+
 
 basic.forever(on_forever)
