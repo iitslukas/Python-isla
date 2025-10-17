@@ -1,0 +1,29 @@
+sens1 = 200
+sens2 = -200
+x = 2
+y = 2
+b1 = 255
+step = 30
+
+def on_forever():
+    global sens1, x, y, b1, sens2, step
+    led.plot(x, y)
+    led.set_brightness(b1)
+    pohyb_x =input.acceleration(Dimension.X)
+    pohyb_y =input.acceleration(Dimension.Y)
+    if pohyb_x < sens2:
+        b1 = b1 - step
+    elif pohyb_x > sens1:
+        b1 = b1 + step 
+    if pohyb_y < sens2:
+        b1 = b1 - step
+    elif pohyb_y > sens1:
+        b1 = b1 + step
+
+
+def on_gesture_shake():
+    basic.show_icon(IconNames.SKULL)
+    pass
+input.on_gesture(Gesture.SHAKE, on_gesture_shake)
+
+basic.forever(on_forever)
