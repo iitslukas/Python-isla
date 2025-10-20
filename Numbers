@@ -1,0 +1,12 @@
+def number():
+    print("Zadajte čislo:")
+    cislo = input()
+    if cislo.isdigit():
+        for i in range(0, int(cislo)):
+            print("x"*(i+1))
+        print (f"Zadal si čislo: {cislo}")
+    else:
+        print("Nezadali ste číslo skúste to znovu")
+        number()
+
+number()
