@@ -1,0 +1,14 @@
+def faktorial():
+    print("Zadajte čislo:")
+    x = input()
+    vys = 1
+    if x.isdigit():
+        print (f"Faktorial čísla {x} je:")
+        for fakt in range(1, int(x)+1):
+            vys = fakt*(vys)
+        print(vys)
+    else:
+        print(f"Nezadali ste čislo")
+        faktorial()
+
+faktorial()
