@@ -1,0 +1,20 @@
+parne = []
+neparne = []
+def split_even_odds(cisla):
+    print(cisla)
+    print("Premýšlam...")
+    for cislo in cisla:
+        if (cislo % 2 == 1):
+            print(f"Číslo {cislo} je nepárne")
+            parne.append(cislo)
+        else:
+            print(f"Číslo {cislo} je párne")
+            neparne.append(cislo)
+    print(f"Zoznam pre párne čísla {parne}")
+    print(f"Zoznam pre nepárne čísla {neparne}")
+
+
+
+
+
+split_even_odds([1, 2, 3, 5, 8, 4, 9])
