@@ -1,0 +1,15 @@
+kosik = ["banan", "voda", "jablko", "bageta", "banan"]
+
+def removefromkosik(item_to_remove):
+    i = 0
+    for item_from_kosik in kosik:
+        print(f"Hladám {item_to_remove}")
+        if item_from_kosik == item_to_remove:
+            print(f"Našiel som {item_to_remove} a jeho index je {i}")
+            kosik.pop(i)    
+        else:
+            print(f"Nenašiel som {item_to_remove}")
+        i=i+1
+    print(kosik)
+            
+removefromkosik("banan")
